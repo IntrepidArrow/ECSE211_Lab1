@@ -12,7 +12,7 @@ public class Main {
   /**
    * The US controller selected by the user (bang-bang or P-type).
    */
-  public static UltrasonicController selectedController;
+  public static  UltrasonicController selectedController;
 
   /**
    * Main entry point - instantiate objects used and set up sensor
@@ -25,9 +25,10 @@ public class Main {
     int option = Button.waitForAnyPress();
 
     if (option == Button.ID_LEFT) {
+      
       selectedController = new BangBangController();
     } else if (option == Button.ID_RIGHT) {
-      selectedController = new PController();
+      selectedController = new BangBangController();;
     } else {
       showErrorAndExit("Error - invalid button!");
     }
