@@ -4,6 +4,7 @@ import static ca.mcgill.ecse211.lab1.Resources.*;
 
 
 public class BangBangController extends UltrasonicController {
+  double dCos45 = 0;
   
 
   public BangBangController() {
@@ -16,19 +17,20 @@ public class BangBangController extends UltrasonicController {
   @Override
   public void processUSData(int distance) {
     
+    
     filter(distance);
-  
-    if(Math.abs(distance*COSINE_45-BAND_CENTER)<BAND_WIDTH)
+    dCos45 = distance*COSINE_45;
+    if(Math.abs(dCos45-BAND_CENTER)<BAND_WIDTH)
     {
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH);
     }
-    else if(distance*COSINE_45>BAND_CENTER)
+    else if(dCos45>BAND_CENTER+BAND_WIDTH)
     {
       LEFT_MOTOR.setSpeed(MOTOR_HIGH-DELTA);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH+DELTA);
     }
-    else if(distance*COSINE_45<BAND_CENTER)
+    else if(dCos45<BAND_CENTER-BAND_WIDTH)
     {
       LEFT_MOTOR.setSpeed(MOTOR_HIGH+DELTA);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH-DELTA);

@@ -19,25 +19,25 @@ public class Resources {
   /**
    * Offset from the wall (cm).
    */
-  public static final double BAND_CENTER = 20;
+  public static final double BAND_CENTER = 40;
   
   /**
    * Width of dead band (cm).
    */
-  public static final double BAND_WIDTH = 7.5;
+  public static final double BAND_WIDTH = 5.5;
   
-  public static final int DELTA = 75;
+  public static final int DELTA = 50;
   
   /**
    * Speed of slower rotating wheel (deg/sec).
    */
-  public static final int MOTOR_LOW = 100;
+  public static final int MOTOR_LOW = 75;
   public static final double COSINE_45 = 0.7071;
   
   /**
    * Speed of the faster rotating wheel (deg/sec).
    */
-  public static final int MOTOR_HIGH = 100;
+  public static final int MOTOR_HIGH = 150;
   
   public static final int FILTER_OUT = 20;
 
