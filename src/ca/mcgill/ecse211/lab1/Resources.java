@@ -26,7 +26,7 @@ public class Resources {
    */
   public static final double BAND_WIDTH = 5.5;
   
-  public static final int DELTA = 50;
+  public static final int DELTA = 43;
   
   /**
    * Speed of slower rotating wheel (deg/sec).
@@ -37,7 +37,7 @@ public class Resources {
   /**
    * Speed of the faster rotating wheel (deg/sec).
    */
-  public static final int MOTOR_HIGH = 150;
+  public static final int MOTOR_HIGH = 125;
   
   public static final int FILTER_OUT = 20;
 

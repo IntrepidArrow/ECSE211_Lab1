@@ -20,20 +20,36 @@ public class BangBangController extends UltrasonicController {
     
     filter(distance);
     dCos45 = distance*COSINE_45;
-    if(Math.abs(dCos45-BAND_CENTER)<BAND_WIDTH)
+    if(dCos45<BAND_CENTER/2.5)
+    {LEFT_MOTOR.setSpeed((MOTOR_HIGH-DELTA)); 
+    RIGHT_MOTOR.setSpeed((MOTOR_HIGH-DELTA)); 
+      LEFT_MOTOR.backward();
+    RIGHT_MOTOR.backward();
+     
+    }
+    else if(Math.abs(dCos45-BAND_CENTER)<BAND_WIDTH)
     {
+      
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH);
+      LEFT_MOTOR.forward(); // Start robot moving forward
+      RIGHT_MOTOR.forward();
     }
     else if(dCos45>BAND_CENTER+BAND_WIDTH)
     {
+      
       LEFT_MOTOR.setSpeed(MOTOR_HIGH-DELTA);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH+DELTA);
+      LEFT_MOTOR.forward(); // Start robot moving forward
+      RIGHT_MOTOR.forward();
     }
     else if(dCos45<BAND_CENTER-BAND_WIDTH)
     {
+      
       LEFT_MOTOR.setSpeed(MOTOR_HIGH+DELTA);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH-DELTA);
+      LEFT_MOTOR.forward(); // Start robot moving forward
+      RIGHT_MOTOR.forward();
     }
   }
 
