@@ -16,20 +16,19 @@ public class BangBangController extends UltrasonicController {
   @Override
   public void processUSData(int distance) {
 
-
     filter(distance);
     dCos45 = distance*COS_B;
-    
-  if(dCos45 < (BAND_CENTER/2.5))
-  {
-    LEFT_MOTOR.setSpeed((MOTOR_HIGH+DELTA)); 
-    RIGHT_MOTOR.setSpeed((MOTOR_HIGH+DELTA)); 
-    LEFT_MOTOR.forward();
-    RIGHT_MOTOR.backward(); 
-  }
+
+    if(dCos45 < (BAND_CENTER/2.5))
+    {
+      // Robot corrects its position when it gets too close to the wall
+      LEFT_MOTOR.setSpeed((MOTOR_HIGH+DELTA)); 
+      RIGHT_MOTOR.setSpeed((MOTOR_HIGH+DELTA)); 
+      LEFT_MOTOR.forward();
+      RIGHT_MOTOR.backward(); 
+    }
     else if(Math.abs(dCos45-BAND_CENTER) < BAND_WIDTH)
     {
-
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH);
       LEFT_MOTOR.forward(); // Start robot moving forward
@@ -37,7 +36,7 @@ public class BangBangController extends UltrasonicController {
     }
     else if(dCos45 > BAND_CENTER+BAND_WIDTH)
     {
-
+      //Robot movement turn left 
       LEFT_MOTOR.setSpeed(MOTOR_HIGH-DELTA);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH+DELTA);
       LEFT_MOTOR.forward(); // Start robot moving forward
@@ -45,7 +44,7 @@ public class BangBangController extends UltrasonicController {
     }
     else if(dCos45 < BAND_CENTER-BAND_WIDTH)
     {
-
+      //Robot movement turn right 
       LEFT_MOTOR.setSpeed(MOTOR_HIGH+DELTA);
       RIGHT_MOTOR.setSpeed(MOTOR_HIGH-DELTA);
       LEFT_MOTOR.forward(); // Start robot moving forward
