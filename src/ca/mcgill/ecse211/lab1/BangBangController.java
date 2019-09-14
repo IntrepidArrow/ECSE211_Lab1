@@ -2,7 +2,6 @@ package ca.mcgill.ecse211.lab1;
 
 import static ca.mcgill.ecse211.lab1.Resources.*;
 
-
 public class BangBangController extends UltrasonicController {
   double dCos45 = 0;
   
@@ -19,15 +18,16 @@ public class BangBangController extends UltrasonicController {
     
     
     filter(distance);
-    dCos45 = distance*COSINE_45;
-    if(dCos45<BAND_CENTER/2.5)
-    {LEFT_MOTOR.setSpeed((MOTOR_HIGH-DELTA)); 
-    RIGHT_MOTOR.setSpeed((MOTOR_HIGH-DELTA)); 
-      LEFT_MOTOR.backward();
-    RIGHT_MOTOR.backward();
-     
-    }
-    else if(Math.abs(dCos45-BAND_CENTER)<BAND_WIDTH)
+    dCos45 = distance*COS_B;
+
+//    if(dCos45<BAND_CENTER/2.5)
+//    {LEFT_MOTOR.setSpeed((MOTOR_HIGH-DELTA)); 
+//    RIGHT_MOTOR.setSpeed((MOTOR_HIGH-DELTA)); 
+//    LEFT_MOTOR.backward();
+//    RIGHT_MOTOR.backward();
+//     
+//    }
+    if(Math.abs(dCos45-BAND_CENTER)<BAND_WIDTH)
     {
       
       LEFT_MOTOR.setSpeed(MOTOR_HIGH);

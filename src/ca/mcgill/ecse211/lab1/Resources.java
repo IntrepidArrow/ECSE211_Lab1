@@ -32,7 +32,7 @@ public class Resources {
    * Speed of slower rotating wheel (deg/sec).
    */
   public static final int MOTOR_LOW = 75;
-  public static final double COSINE_45 = 0.7071;
+  public static final double COS_B = 0.8315;
   
   /**
    * Speed of the faster rotating wheel (deg/sec).
