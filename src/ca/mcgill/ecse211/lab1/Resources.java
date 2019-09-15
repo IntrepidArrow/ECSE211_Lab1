@@ -36,8 +36,7 @@ public class Resources {
    */
   public static final int MOTOR_LOW = 65;
   public static final double BANGBANG_COS_B = 1;
-  public static final double P_COS_B = 0.8315;
-  public static final double P_CONSTANT = 9.5;
+  public static final double P_CONSTANT = 1.5;
   public static final int MAX_PDELTA = 125;
   /**
    * Speed of the faster rotating wheel (deg/sec).
