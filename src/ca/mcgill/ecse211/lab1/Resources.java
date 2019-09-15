@@ -42,7 +42,7 @@ public class Resources {
   /**
    * Speed of the faster rotating wheel (deg/sec).
    */
-  public static final int MOTOR_HIGH = 200;
+  public static final int MOTOR_HIGH = 225;
   
   public static final int FILTER_OUT =15;
 
