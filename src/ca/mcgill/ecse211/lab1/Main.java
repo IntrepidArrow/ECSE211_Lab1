@@ -28,7 +28,7 @@ public class Main {
       
       selectedController = new BangBangController();
     } else if (option == Button.ID_RIGHT) {
-      selectedController = new BangBangController();;
+      selectedController = new PController();;
     } else {
       showErrorAndExit("Error - invalid button!");
     }
