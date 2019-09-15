@@ -32,7 +32,7 @@ public class Main {
     } else {
       showErrorAndExit("Error - invalid button!");
     }
-
+    
     // Start the poller and printer threads
     new Thread(new UltrasonicPoller()).start();
     new Thread(new Printer()).start();
