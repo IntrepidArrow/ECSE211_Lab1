@@ -2,9 +2,12 @@ package ca.mcgill.ecse211.lab1;
 
 import static ca.mcgill.ecse211.lab1.Resources.*;
 
-public class BangBangController extends UltrasonicController {
-  double dCos45 = 0;
+/**
+ * This class implements the Bang-Bang controller type functionality for the robot in Lab 1 on the EV3 platform
+ * @author Abhimukth Chaudhuri, Aly Elgharabawy
+ */
 
+public class BangBangController extends UltrasonicController {
 
   public BangBangController() {
     LEFT_MOTOR.setSpeed(MOTOR_HIGH); // Start robot moving forward
@@ -12,6 +15,22 @@ public class BangBangController extends UltrasonicController {
     LEFT_MOTOR.forward();
     RIGHT_MOTOR.forward();
   }
+
+  /**
+   * processUSData processes the distance read by the US sensor and updates the motor speeds and hence the
+   * behavior of the robot accordingly. The motor speeds are updated by a fixed constant
+   * that is independent of the measured error (error = distance - BAND_CENTER where BAND_CENTER is
+   * the offset from the wall). The cases covered by the method include:
+   *  1) when robot is within the acceptable distance 
+   * from the wall
+   *  2) when the robot is too close to the wall it turns away
+   *  3) when the robot is too far from the wall it turns inwards. 
+   * 
+   * The method also includes a fail-safe where it turns outwards
+   * at a high angular speed when it is extremely close to the wall.
+   * 
+   * @param distance The measured value received from the US sensor. 
+   */
 
   @Override
   public void processUSData(int distance) {
@@ -21,7 +40,7 @@ public class BangBangController extends UltrasonicController {
     int error = distance - BANGBANG_BAND_CENTER;
     TEXT_LCD.drawString("ERROR: " + error,0,5);
 
-    if(distance < 20)
+    if(distance < 25)
     {
       TEXT_LCD.drawString("TOO TOO CLOSE ",0,4);
       // Robot corrects its position when it gets too close to the wall

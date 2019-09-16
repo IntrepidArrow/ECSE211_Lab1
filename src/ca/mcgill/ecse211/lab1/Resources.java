@@ -15,52 +15,50 @@ import lejos.hardware.sensor.EV3UltrasonicSensor;
  */
 public class Resources {
   //Parameters: adjust these for desired performance
-  
+
   /**
    * Offset from the wall (cm).
    */
-  public static final int BANGBANG_BAND_CENTER = 30;
-  public static final int P_BAND_CENTER = 20;
-  
+  public static final int BANGBANG_BAND_CENTER = 33;
+  public static final int P_BAND_CENTER = 28;
+
   /**
    * Width of dead band (cm).
    */
   public static final int BANGBANG_BAND_WIDTH = 3;
   public static final int P_BAND_WIDTH = 5;
-  
+
   public static final int BANGBANG_DELTA = 65;
-  public static final int P_DELTA = 67;
 
   /**
    * Speed of slower rotating wheel (deg/sec).
    */
   public static final int MOTOR_LOW = 65;
-  public static final double P_CONSTANT = 2.5;//1.4
-  public static final int MAX_PDELTA = 125;
+  public static final double P_CONSTANT = 2.5;
   /**
    * Speed of the faster rotating wheel (deg/sec).
    */
   public static final int MOTOR_HIGH = 225;
-  
+
   public static final int FILTER_OUT =15;
 
   /**
    * The LCD screen used for displaying text.
    */
   public static final TextLCD TEXT_LCD = LocalEV3.get().getTextLCD();
-  
+
   /**
    * The ultrasonic sensor.
    */
   public static final EV3UltrasonicSensor US_SENSOR = 
       new EV3UltrasonicSensor(LocalEV3.get().getPort("S1"));
-  
+
   /**
    * The left motor.
    */
   public static final EV3LargeRegulatedMotor LEFT_MOTOR =
       new EV3LargeRegulatedMotor(LocalEV3.get().getPort("A"));
-  
+
   /**
    * The right motor.
    */
