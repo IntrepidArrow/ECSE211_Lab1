@@ -40,16 +40,19 @@ public class BangBangController extends UltrasonicController {
     int error = distance - BANGBANG_BAND_CENTER;
     TEXT_LCD.drawString("ERROR: " + error,0,5);
 
+    // Robot corrects its position when it gets too too close to the wall
     if(distance < 25)
     {
       TEXT_LCD.drawString("TOO TOO CLOSE ",0,4);
       // Robot corrects its position when it gets too close to the wall
       LEFT_MOTOR.setSpeed(350); 
       RIGHT_MOTOR.setSpeed(350); 
+      //Make the robot turn outwards instead of driving into the wall 
       LEFT_MOTOR.forward();
       RIGHT_MOTOR.backward(); 
     }
 
+    //Position correction when robot drives outside acceptable bandwidth and towards the wall 
     else if(error < (-BANGBANG_BAND_WIDTH))
     {
       TEXT_LCD.drawString("CLOSE",0,4);
@@ -59,7 +62,8 @@ public class BangBangController extends UltrasonicController {
       LEFT_MOTOR.forward(); // Start robot moving forward
       RIGHT_MOTOR.forward();
     } 
-
+    
+    //Position correction when robot drives outside acceptable bandwidth and away from the wall
     else if(error > BANGBANG_BAND_WIDTH)
     {
       TEXT_LCD.drawString("FAR",0,4);
@@ -69,6 +73,8 @@ public class BangBangController extends UltrasonicController {
       LEFT_MOTOR.forward(); // Start robot moving forward
       RIGHT_MOTOR.forward();
     }
+    
+    //When robot drives within acceptable bandwidth
     else if(Math.abs(error) <= BANGBANG_BAND_WIDTH)
     {
       TEXT_LCD.drawString("ON PATH",0,4);
