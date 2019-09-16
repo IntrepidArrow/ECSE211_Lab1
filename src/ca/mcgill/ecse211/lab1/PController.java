@@ -19,17 +19,17 @@ public class PController extends UltrasonicController {
     filter(distance);
 
     int error = distance - P_BAND_CENTER;
-    int PDELTA = (int) (error*P_CONSTANT);
+    float PDELTA = (int) (error*P_CONSTANT);
     if(PDELTA>62)
       PDELTA = 62;
     TEXT_LCD.drawString("ERROR: " + error,0,5);
 
-    if(distance < 20)
+    if(distance < 20)//20
     {
       TEXT_LCD.drawString("TOO TOO CLOSE ",0,4);
       // Robot corrects its position when it gets too close to the wall
-      LEFT_MOTOR.setSpeed(350); 
-      RIGHT_MOTOR.setSpeed(350); 
+      LEFT_MOTOR.setSpeed(480); 
+      RIGHT_MOTOR.setSpeed(480); 
       LEFT_MOTOR.forward();
       RIGHT_MOTOR.backward(); 
     }
@@ -38,8 +38,8 @@ public class PController extends UltrasonicController {
     {
       TEXT_LCD.drawString("CLOSE",0,4);
       //Robot movement turn right 
-      LEFT_MOTOR.setSpeed(MOTOR_SPEED+PDELTA);
-      RIGHT_MOTOR.setSpeed(MOTOR_SPEED-PDELTA);
+      LEFT_MOTOR.setSpeed(MOTOR_SPEED + PDELTA);
+      RIGHT_MOTOR.setSpeed(MOTOR_SPEED - PDELTA);
       LEFT_MOTOR.forward(); // Start robot moving forward
       RIGHT_MOTOR.forward();
     } 

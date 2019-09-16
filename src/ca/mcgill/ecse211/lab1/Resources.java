@@ -20,13 +20,13 @@ public class Resources {
    * Offset from the wall (cm).
    */
   public static final int BANGBANG_BAND_CENTER = 30;
-  public static final int P_BAND_CENTER = 30;
+  public static final int P_BAND_CENTER = 20;
   
   /**
    * Width of dead band (cm).
    */
   public static final int BANGBANG_BAND_WIDTH = 3;
-  public static final int P_BAND_WIDTH = 3;
+  public static final int P_BAND_WIDTH = 5;
   
   public static final int BANGBANG_DELTA = 65;
   public static final int P_DELTA = 67;
@@ -35,8 +35,7 @@ public class Resources {
    * Speed of slower rotating wheel (deg/sec).
    */
   public static final int MOTOR_LOW = 65;
-  public static final double BANGBANG_COS_B = 1;
-  public static final double P_CONSTANT = 1.5;
+  public static final double P_CONSTANT = 2.5;//1.4
   public static final int MAX_PDELTA = 125;
   /**
    * Speed of the faster rotating wheel (deg/sec).
